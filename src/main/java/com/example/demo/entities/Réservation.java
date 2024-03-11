@@ -1,11 +1,14 @@
 package com.example.demo.entities;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,13 +17,15 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class utilisateurs implements Serializable {
-	@Id @GeneratedValue
-	private Integer id;
-	private String nom;
-	private String mail;
+public class Réservation implements Serializable {
+	@Id 
+	@GeneratedValue (strategy=GenerationType.IDENTITY)
+	private int id;
+	private Date date_du_résrvation   ;
 	@ManyToOne
-	private Service service;
-	
+	private Salle salle;
+	@ManyToOne
+	private  Utilisateur utilisateur;
 
+	
 }

@@ -1,32 +1,35 @@
 package com.example.demo.entities;
 
 import java.io.Serializable;
-import java.util.List;
+import java.sql.Date;
 
-import jakarta.persistence.CascadeType;
+
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Direction implements Serializable {
-	
-	
-	@Id
+public class Equipement implements Serializable {
+	@Id 
 	@GeneratedValue (strategy=GenerationType.IDENTITY)
-	private int id; 
-	private String nom;
-	@OneToMany(mappedBy = "direction", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private List<Service> services;
-
+	private int id;
+	private Date date_acquisition;
+	private String configuration;
+	private String etat;
+	private boolean reservable;
+	@ManyToOne
+	private Réservation reservation;
+	@ManyToOne
+	private  Utilisateur utilisateur;
+	@ManyToOne
+	private  Categorie categorie;
+	
 }
