@@ -28,7 +28,7 @@ public class Utilisateur implements Serializable {
 	private Integer cin;
 	private String matricule;
 	private String poste;
-	private String mail;
+	private String email;
 	private String adresse;
 	private Integer telephone;
 	@ManyToOne
