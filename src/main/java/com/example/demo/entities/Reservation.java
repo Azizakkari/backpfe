@@ -1,7 +1,7 @@
 package com.example.demo.entities;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,11 +17,13 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Réservation implements Serializable {
+public class Reservation implements Serializable {
 	@Id 
 	@GeneratedValue (strategy=GenerationType.IDENTITY)
 	private int id;
-	private Date date_du_résrvation   ;
+	private String typemeeting;
+	private Date date_du_resrvation;
+	private Date date_fin;
 	@ManyToOne
 	private Salle salle;
 	@ManyToOne

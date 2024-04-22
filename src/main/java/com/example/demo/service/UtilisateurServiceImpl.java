@@ -1,10 +1,12 @@
 package com.example.demo.service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.DTO.UtilisateurRequestDto;
@@ -47,14 +49,27 @@ public class UtilisateurServiceImpl implements UtilisateurService {
 
 	@Override
 	public void delete(Integer id) {
+		System.out.println("controleur contacté");
 		utilisateurDao.deleteById(id);
 		
 	}
 
 	@Override
-	public UtilisateurResponseDto update(UtilisateurRequestDto utilisateurRequestDto, Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+	public UtilisateurResponseDto update(UtilisateurRequestDto utilisateurRequestDto , Integer id){
+	Optional<Utilisateur>utilisateurOptional =utilisateurDao.findById(id);
+		Utilisateur utilisateurmodifie=modelMapper.map(utilisateurRequestDto, Utilisateur.class);
+		if (utilisateurOptional.isPresent()) {
+		Utilisateur utilisateur =modelMapper.map(utilisateurRequestDto, Utilisateur.class);
+		utilisateur.setId(id);
+		Utilisateur update=utilisateurDao.save(utilisateur);
+		return modelMapper.map(update, UtilisateurResponseDto.class);
+		}	
+		else { 
+			
+			return modelMapper.map(utilisateurmodifie, UtilisateurResponseDto.class);
+		}
+				
+
 	}
 
 	@Override

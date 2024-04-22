@@ -7,5 +7,5 @@ import com.example.demo.entities.Equipement;
 
 @Repository
 public interface EquipementDao extends JpaRepository<Equipement, Integer>{
-
+	Equipement findByconfiguration(String configuration);
 }

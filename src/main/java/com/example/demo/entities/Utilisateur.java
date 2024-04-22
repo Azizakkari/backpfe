@@ -32,9 +32,9 @@ public class Utilisateur implements Serializable {
 	private String adresse;
 	private Integer telephone;
 	@ManyToOne
-	private Service service;
+	private Leservice leservice;
 	@OneToMany(mappedBy = "utilisateur", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private List<Réservation> reservation;
+	private List<Reservation> reservation;
 	@OneToMany(mappedBy = "utilisateur", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Equipement> equipement;
 

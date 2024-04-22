@@ -26,7 +26,8 @@ public class Direction implements Serializable {
 	@GeneratedValue (strategy=GenerationType.IDENTITY)
 	private int id; 
 	private String nom;
+	private String description;
 	@OneToMany(mappedBy = "direction", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private List<Service> services;
+	private List<Leservice> lesservices;
 
 }

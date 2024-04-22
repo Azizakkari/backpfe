@@ -5,7 +5,8 @@ import org.springframework.stereotype.Repository;
 
 import com.example.demo.entities.Categorie;
 
+
 @Repository
 public interface CategorieDao extends JpaRepository<Categorie, Integer> {
-
+Categorie findByNom(String nom);
 }

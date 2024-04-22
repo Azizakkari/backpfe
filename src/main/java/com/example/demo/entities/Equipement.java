@@ -26,7 +26,7 @@ public class Equipement implements Serializable {
 	private String etat;
 	private boolean reservable;
 	@ManyToOne
-	private Réservation reservation;
+	private Reservation reservation;
 	@ManyToOne
 	private  Utilisateur utilisateur;
 	@ManyToOne

@@ -7,5 +7,5 @@ import com.example.demo.entities.Direction;
 
 @Repository
 public interface DirectionDao extends JpaRepository<Direction, Integer> {
-
+ Direction findByNom(String nom);
 }

@@ -26,7 +26,7 @@ public class Salle implements Serializable {
 	private String nom;
 	private Integer nombre_de_salle; 
 	@OneToMany(mappedBy = "salle", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private List<Réservation> reservation;
+	private List<Reservation> reservation;
 	
 
 
