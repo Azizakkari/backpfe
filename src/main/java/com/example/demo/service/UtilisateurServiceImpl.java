@@ -53,7 +53,12 @@ public class UtilisateurServiceImpl implements UtilisateurService {
 		utilisateurDao.deleteById(id);
 		
 	}
-
+	@Override
+	public UtilisateurResponseDto LoadEmployeeById(Integer id) {
+		Optional<Utilisateur> optionalemployee = utilisateurDao.findById(id);
+		Utilisateur util= optionalemployee.get();
+        return modelMapper.map(util, UtilisateurResponseDto.class);
+	}
 	@Override
 	public UtilisateurResponseDto update(UtilisateurRequestDto utilisateurRequestDto , Integer id){
 	Optional<Utilisateur>utilisateurOptional =utilisateurDao.findById(id);
@@ -78,5 +83,6 @@ public class UtilisateurServiceImpl implements UtilisateurService {
 		return UtilisateurResponseDto;
 		
 	}
+	
 
 }

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,11 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.DTO.ServiceRequestDto;
 import com.example.demo.DTO.ServiceResponseDto;
+import com.example.demo.DTO.UtilisateurRequestDto;
+import com.example.demo.DTO.UtilisateurResponseDto;
 import com.example.demo.service.ServicesService;
 
 @RestController
 @RequestMapping("services")
-@CrossOrigin("*")
+@CrossOrigin("origins = \"*\", allowedHeaders = \"*\"")
 public class ServiceController {
 	ServicesService servicesService;
 
@@ -49,5 +52,16 @@ public class ServiceController {
 		System.out.println("Controler contacter");
 	}
 	
+	@GetMapping("{id}")
+	public ServiceResponseDto LoadServId(@PathVariable("id") Integer id) {
+		return servicesService.LoadServId(id);
+		
+	}
+	@PutMapping("/majserv/{id}")
+	public ServiceResponseDto update(@PathVariable("id") Integer id, @RequestBody ServiceRequestDto serviceRequestDto) {
+		 System.out.println("Controller contacté");
+		return servicesService.update(serviceRequestDto,id);
 	
+		
+	}
 }

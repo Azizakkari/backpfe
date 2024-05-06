@@ -3,6 +3,8 @@ package com.example.demo.entities;
 import java.io.Serializable;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -32,12 +34,12 @@ public class Utilisateur implements Serializable {
 	private String adresse;
 	private Integer telephone;
 	@ManyToOne
+	@JsonBackReference("service-user")
 	private Leservice leservice;
 	@OneToMany(mappedBy = "utilisateur", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	
 	private List<Reservation> reservation;
 	@OneToMany(mappedBy = "utilisateur", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Equipement> equipement;
-
-	
 
 }

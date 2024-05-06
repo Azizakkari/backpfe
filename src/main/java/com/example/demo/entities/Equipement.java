@@ -3,6 +3,7 @@ package com.example.demo.entities;
 import java.io.Serializable;
 import java.sql.Date;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,10 +27,13 @@ public class Equipement implements Serializable {
 	private String etat;
 	private boolean reservable;
 	@ManyToOne
+	@JsonBackReference("reserv-equip")
 	private Reservation reservation;
 	@ManyToOne
+	@JsonBackReference("user-equip")
 	private  Utilisateur utilisateur;
 	@ManyToOne
+	@JsonBackReference("cat-equip")
 	private  Categorie categorie;
 	
 }

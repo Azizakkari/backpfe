@@ -15,11 +15,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.DTO.UtilisateurRequestDto;
 import com.example.demo.DTO.UtilisateurResponseDto;
+import com.example.demo.entities.Utilisateur;
 import com.example.demo.service.UtilisateurService;
 
 @RestController
+
 @RequestMapping("users")
-@CrossOrigin("*")
+@CrossOrigin("origins = \"*\", allowedHeaders = \"*\"")
+
 public class UtilisateurController {
 	UtilisateurService utilisateurService;
 
@@ -49,7 +52,11 @@ public class UtilisateurController {
 		return utilisateurService.update(utilisateurRequestDto, id);
 	}
 	
-	
+	@GetMapping("{id}")
+	public UtilisateurResponseDto LoadEmployeeById(@PathVariable("id") Integer id) {
+		return utilisateurService.LoadEmployeeById(id);
+		
+	}
 	@GetMapping()
 	public List<UtilisateurResponseDto> getusers() {
 		return utilisateurService.findall();
@@ -60,5 +67,13 @@ public class UtilisateurController {
 	public UtilisateurResponseDto AjouterUser(@RequestBody()UtilisateurRequestDto utilisateurRequestDto) {
 	return utilisateurService.Ajouteruser(utilisateurRequestDto);
 			
+	}
+	@PutMapping("/majuser/{id}")
+	public UtilisateurResponseDto updateEmployee(@PathVariable("id") Integer id, @RequestBody UtilisateurRequestDto utilisateurRequestDto) {
+		 System.out.println("Controller contacté");
+		return utilisateurService.update(utilisateurRequestDto ,id);
+		
+	
+		
 	}
 }

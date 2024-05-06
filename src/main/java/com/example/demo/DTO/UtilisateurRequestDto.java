@@ -23,6 +23,7 @@ import lombok.NoArgsConstructor;
 public class UtilisateurRequestDto {
 	
 	
+	private int id;
 	private String nom;
 	private String prenom;
 	private Integer cin;
@@ -30,7 +31,7 @@ public class UtilisateurRequestDto {
 	private String poste;
 	private String email;
 	private String adresse;
-	private Integer telephone;	
+	private Integer telephone;
 	
 	private Leservice leservice;
 

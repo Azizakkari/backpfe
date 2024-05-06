@@ -13,6 +13,7 @@ public interface UtilisateurService {
 	UtilisateurResponseDto ChercherbyId(Integer id);
 	UtilisateurResponseDto ChercherbyNom(String nom);
 	void delete(Integer id);
+	UtilisateurResponseDto LoadEmployeeById(Integer id);
 	UtilisateurResponseDto update(UtilisateurRequestDto utilisateurRequestDto, Integer id);
 	List<UtilisateurResponseDto> findall();
 	
