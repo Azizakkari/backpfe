@@ -70,8 +70,8 @@ public class UtilisateurController {
 		
 	}
 	
-	@PostMapping()
-	@PreAuthorize("hasAuthority('SCOPE_ADMIN')")
+	@PostMapping("/register")
+	//@PreAuthorize("hasAuthority('SCOPE_ADMIN')")
 	public UtilisateurResponseDto AjouterUser(@RequestBody()UtilisateurRequestDto utilisateurRequestDto) {
 	return utilisateurService.Ajouteruser(utilisateurRequestDto);
 			

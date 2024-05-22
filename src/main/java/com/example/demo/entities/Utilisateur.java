@@ -34,7 +34,7 @@ public class Utilisateur implements Serializable {
 	private String poste;
 	private String email;
 	private String adresse;
-	private Integer telephone;
+	private long telephone;
 	@ManyToOne
 	@JsonBackReference("service-user")
 	private Leservice leservice;

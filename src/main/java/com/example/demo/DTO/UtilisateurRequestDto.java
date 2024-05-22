@@ -31,7 +31,7 @@ public class UtilisateurRequestDto {
 	private String poste;
 	private String email;
 	private String adresse;
-	private Integer telephone;
+	private long telephone;
 	
 	private Leservice leservice;
 
