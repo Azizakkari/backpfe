@@ -6,6 +6,8 @@ import java.sql.Date;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -32,8 +34,7 @@ public class Equipement implements Serializable {
 	@ManyToOne
 	@JsonBackReference("user-equip")
 	private  Utilisateur utilisateur;
-	@ManyToOne
-	@JsonBackReference("cat-equip")
-	private  Categorie categorie;
+	@Enumerated(EnumType.STRING)
+	private TypeEquipement typeEquipement;
 	
 }

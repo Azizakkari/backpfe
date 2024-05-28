@@ -4,6 +4,7 @@ package com.example.demo.DTO;
 
 import java.util.List;
 
+import com.example.demo.entities.Demande;
 import com.example.demo.entities.Equipement;
 import com.example.demo.entities.Leservice;
 import com.example.demo.entities.Reservation;
@@ -27,7 +28,7 @@ public class UtilisateurRequestDto {
 	private String nom;
 	private String prenom;
 	private Integer cin;
-	private String matricule;
+	private int matricule;
 	private String poste;
 	private String email;
 	private String adresse;

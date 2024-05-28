@@ -24,9 +24,11 @@ public class Salle implements Serializable {
 	@Id  @GeneratedValue (strategy=GenerationType.IDENTITY)
 	private int id; 
 	private String nom;
-	private Integer nombre_de_salle; 
-	@OneToMany(mappedBy = "salle", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private List<Reservation> reservation;
+	private Integer nombre_des_places; 
+	/*
+	 * @OneToMany(mappedBy = "salle", cascade = CascadeType.ALL, fetch =
+	 * FetchType.LAZY) private List<Reservation> reservation;
+	 */
 	
 
 

@@ -38,7 +38,8 @@ public InMemoryUserDetailsManager inMemoryUserDetailsManager () {
 PasswordEncoder passwordEncoder=passwordEncoder();
 	return new InMemoryUserDetailsManager(
 			User.withUsername("user1").password(passwordEncoder.encode("12345")).authorities("USER").build(),
-			User.withUsername("admin").password(passwordEncoder.encode("12345")).authorities("USER","ADMIN").build()
+			User.withUsername("admin").password(passwordEncoder.encode("12345")).authorities("USER","ADMIN").build(),
+			User.withUsername("aziz").password(passwordEncoder.encode("12345")).authorities("USER").build()
 			
 			);
 	

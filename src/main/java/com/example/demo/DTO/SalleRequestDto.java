@@ -14,6 +14,6 @@ import lombok.NoArgsConstructor;
 public class SalleRequestDto {
 	
 	private String nom;
-	private Integer nombre_de_salle; 
+	private Integer nombre_des_places; 
 	private List<Reservation> reservation;
 }

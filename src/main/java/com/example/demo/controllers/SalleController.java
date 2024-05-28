@@ -2,6 +2,7 @@ package com.example.demo.controllers;
 
 import java.util.List;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,12 +33,15 @@ public SalleController(SalleService salleService) {
 }
 
 @PostMapping()
+@PreAuthorize("hasAuthority('SCOPE_ADMIN')")
 public SalleResponseDto ajouterSalle(@RequestBody() SalleRequestDto salleRequestDto) {
+	System.out.println("Controller contacted");
 	return salleService.ajouterSalle(salleRequestDto);
 
 }
 
 @GetMapping()
+@PreAuthorize("hasAuthority('SCOPE_USER')")
 public List<SalleResponseDto> getsalle() {
 	return salleService.findall();
 

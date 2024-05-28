@@ -30,7 +30,7 @@ public class Utilisateur implements Serializable {
 	private String nom;
 	private String prenom;
 	private Integer cin;
-	private String matricule;
+	private int matricule;
 	private String poste;
 	private String email;
 	private String adresse;
