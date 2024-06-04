@@ -82,7 +82,11 @@ public class UtilisateurController {
 		 System.out.println("Controller contacté");
 		return utilisateurService.update(utilisateurRequestDto ,id);
 		
+	}
 	
-		
+	@PostMapping("/register")
+	public UtilisateurResponseDto AjouterUtilisateur(@RequestBody()UtilisateurRequestDto utilisateurRequestDto) {
+	return utilisateurService.Ajouteruser(utilisateurRequestDto);
+			
 	}
 }

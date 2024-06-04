@@ -39,7 +39,8 @@ PasswordEncoder passwordEncoder=passwordEncoder();
 	return new InMemoryUserDetailsManager(
 			User.withUsername("Faouzi").password(passwordEncoder.encode("12345")).authorities("USER").build(),
 			User.withUsername("Administrateur").password(passwordEncoder.encode("12345")).authorities("USER","ADMIN").build(),
-			User.withUsername("Aziz").password(passwordEncoder.encode("12345")).authorities("USER").build()
+			User.withUsername("Aziz").password(passwordEncoder.encode("123456")).authorities("USER","ADMIN").build(),
+			User.withUsername("ahmed").password(passwordEncoder.encode("12345")).authorities("USER").build()
 			
 			);
 	
@@ -54,7 +55,7 @@ public PasswordEncoder passwordEncoder() {
 			  .sessionManagement(sm->sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 			  
 			  .csrf(csrf->csrf.disable())
-			  .authorizeHttpRequests(ar->ar.requestMatchers("/auth/login/**").permitAll())
+			  .authorizeHttpRequests(ar->ar.requestMatchers("/auth/login/**", "/users/register/**").permitAll())
 			  .authorizeHttpRequests(ar->ar.anyRequest().authenticated())
 			  //.httpBasic(Customize.withDefaults())
 			  .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt)
